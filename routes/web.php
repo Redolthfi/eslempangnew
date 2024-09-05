@@ -29,3 +29,7 @@ Route::middleware(['auth'])->group(function () {
         });
     });
 });
+
+Route::get('/test' , function(){
+dd(\App\Models\Product::with('category')->limit(2)->get());
+});
