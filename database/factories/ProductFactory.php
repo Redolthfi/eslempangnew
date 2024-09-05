@@ -19,6 +19,7 @@ class ProductFactory extends Factory
         return [
             'name' => fake()->name,
             'image' => fake()->url,
+            'harga' => rand(5000, 10000),
             'description' => fake()->paragraph(),
             'category_id' => \App\Models\Category::inRandomOrder()->first()->id
         ];
