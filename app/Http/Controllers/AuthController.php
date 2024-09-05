@@ -21,9 +21,15 @@ class AuthController extends Controller
 
         try {
             if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')], $request->has('remember-me'))) {
-                logInfo('login user : ' . auth()->user()->email);
 
-                return redirect()->route('dashboard');
+                $user = auth()->user();
+                logInfo('login user : ' . $user->email);
+
+                if ($user->role == 'ADMIN') {
+                    return redirect()->route('dashboard')->with('success', 'hai bwang welcum back');
+                }
+
+                return redirect()->intended();
             }
 
             // gagal auth
