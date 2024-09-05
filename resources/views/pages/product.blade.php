@@ -7,28 +7,25 @@
                     <div
                         class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm ">
                         <div class="h-80 w-full ">
-                         <img class="w-full h-full object-contain" src="{{ asset('storage') . '/' . $product->image }}" alt="">
+                         <img class="w-full h-full object-con" src="{{ asset('storage') . '/' . $product->image }}" alt="">
                         </div>
                         <div class="pt-6">
                             <div class="mb-4 flex items-center justify-between gap-4">
                                 <div class="flex items-center justify-end gap-1">
-                                    <button type="button" data-tooltip-target="tooltip-quick-look"
-                                        class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 d">
-                                        <span class="sr-only"> Quick look </span>
-                                        <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                            <path stroke="currentColor" stroke-width="2"
-                                                d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
-                                            <path stroke="currentColor" stroke-width="2"
-                                                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                        </svg>
-                                    </button>
-                                    <div id="tooltip-quick-look" role="tooltip"
-                                        class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 "
-                                        data-popper-placement="top">
-                                        Quick look
-                                        <div class="tooltip-arrow" data-popper-arrow=""></div>
-                                    </div>
+                                    <a href="{{ route('product.detail', ['id'=>$product->id]) }}">
+                                        <button type="button" data-tooltip-target="tooltip-quick-look"
+                                            class="rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 d">
+                                            <span class="sr-only"> Quick look </span>
+                                            <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-width="2"
+                                                    d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" />
+                                                <path stroke="currentColor" stroke-width="2"
+                                                    d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                            </svg>
+                                        </button>
+
+                                    </a>
                                 </div>
                             </div>
                             <a href="#"

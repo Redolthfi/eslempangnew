@@ -21,7 +21,16 @@ Route::get('/faq', function () {
 
 Route::get('/contact', function () {
     return view('pages/contact'); 
+
 });
+
+Route::get('/productdetail/{id}', function ($id) {
+
+    $product = Product::findOrFail($id);
+    return view('pages/productdetail', [
+        'product' => $product
+    ]); 
+})->name('product.detail');
 
 Route::get('/products', function () {
 $products = Product::get();
