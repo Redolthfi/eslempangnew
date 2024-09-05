@@ -13,6 +13,18 @@ class Cart extends Model
         'id'
     ];
 
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'cart' => 'array',
+        ];
+    }
+
     // ====================== RELASI ===========================
     public function user()
     {

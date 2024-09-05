@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserProfileController;
@@ -29,6 +30,10 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/', [UserProfileController::class, 'update']);
         });
     });
+
+    Route::get('/order', [CartController::class, 'index']);
+    Route::post('/order', [CartController::class, 'add']);
+    Route::get('/order/delete/{id}', [CartController::class, 'delete']);
 
     Route::prefix('products')->group(function () {
         Route::get('/', [ProductController::class, 'index'])->name('master.product.index');
