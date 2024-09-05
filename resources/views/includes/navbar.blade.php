@@ -17,9 +17,15 @@
                     <span class="block text-sm  text-gray-500 truncate">{{ auth()->user()->email }}</span>
                 </div>
                 <ul class="py-2" aria-labelledby="user-menu-button">
+                    @can('access', 'ADMIN')
                     <li>
                         <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
                     </li>
+                    @elsecan('access', 'USER')
+                    <li>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Order</a>
+                    </li>
+                    @endcan
                     <li>
                         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
                     </li>
