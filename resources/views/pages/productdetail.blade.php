@@ -1,4 +1,7 @@
 <x-layout>
+
+  @include('includes.alert')
+
     <section class="py-8 bg-white md:py-16 antialiased">
         <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
           <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16 ">
@@ -20,7 +23,9 @@
               </div>
     
               
-              <form method="POST" action="{{ route('order') }}">
+              <form method="POST" action="{{ route('cart.add') }}">
+                @csrf
+                <input type="hidden" name="product_id" value="{{ $product->id }}">
                 <div class="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">                          
                     <button
                        class="text-white mt-4 sm:mt-0 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 flex items-center justify-center"
@@ -50,7 +55,7 @@
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
                     </svg>
                   </button>
-                  <input type="text" id="counter-input" data-input-counter class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 " placeholder="" value="2" required />
+                  <input type="text" name="qty" id="counter-input" data-input-counter class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 " placeholder="" value="0" required />
                   <button type="button" id="increment-button" data-input-counter-increment="counter-input" class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 ">
                     <svg class="h-2.5 w-2.5 text-gray-900 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
