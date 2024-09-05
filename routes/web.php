@@ -29,7 +29,7 @@ Route::get('/productdetail/{id}', function ($id) {
     $product = Product::findOrFail($id);
     return view('pages/productdetail', [
         'product' => $product
-    ]); 
+    ]);
 })->name('product.detail');
 
 Route::get('/products', function () {
@@ -46,7 +46,6 @@ Route::middleware('guest')->group(function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'registerPost']);
 });
-Route::post('/order', [CartController::class, 'add'])->name('order');
 // auth path
 Route::middleware(['auth'])->group(function () {
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
@@ -60,13 +59,14 @@ Route::middleware(['auth'])->group(function () {
         });
     });
 
-    Route::get('/order', [CartController::class, 'index']);
-   
-    Route::get('/order/delete/{id}', [CartController::class, 'delete']);
+    // Route::get('/order', [CartController::class, 'index']);
+    Route::post('/cartAdd', [CartController::class, 'add'])->name('cart.add');
 
-    Route::get('/order', [CartController::class, 'index']);
-    Route::post('/order', [CartController::class, 'add']);
-    Route::get('/order/delete/{id}', [CartController::class, 'delete']);
+    // Route::get('/order/delete/{id}', [CartController::class, 'delete']);
+
+    // Route::get('/order', [CartController::class, 'index']);
+    // Route::post('/order', [CartController::class, 'add']);
+    // Route::get('/order/delete/{id}', [CartController::class, 'delete']);
 
     Route::prefix('master')->group(function () {
         Route::prefix('products')->group(function () {

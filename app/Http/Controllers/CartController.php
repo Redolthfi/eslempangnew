@@ -20,9 +20,11 @@ class CartController extends Controller
     {
         $request->validate([
             'product_id' => ['required', 'exists:products,id'],
-            'qty' => ['required', 'numeric', 'min:0'],
+            'qty' => ['required', 'numeric', 'min:1'],
             'note' => 'nullable'
         ]);
+
+        // dd($request->all());
 
         try {
 
@@ -35,7 +37,7 @@ class CartController extends Controller
                     'cart' => [
                         $request->input('product_id') => [
                             'qty' => $request->input('qty'),
-                            'note' => $request->input('note')
+                            'note' => $request->input('note') ?? null
                         ]
                     ]
                 ]);
@@ -49,15 +51,13 @@ class CartController extends Controller
             // gabung data baru dan lama
             $stackCart[$request->input('product_id')] = [
                 'qty' => $request->input('qty'),
-                'note' => $request->input('note')
+                'note' => $request->input('note') ?? null
             ];
 
             $cartUser->cart = $stackCart;
 
             // save perubahan
             $cartUser->save();
-
-            dd($cartUser);
 
             return back()->with('success', 'product berhasil ditambahkan ke cart');
 
