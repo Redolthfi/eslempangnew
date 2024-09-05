@@ -23,6 +23,9 @@ Route::get('/faq', function () {
 Route::get('/contact', function () {
     return view('pages/contact');
 });
+Route::get('/orderdetail', function () {
+    return view('pages/orderdetail');
+});
 
 Route::get('/productdetail/{id}', function ($id) {
 
