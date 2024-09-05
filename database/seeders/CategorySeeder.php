@@ -13,6 +13,26 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::factory(5)->create();
+        Category::create([
+            'name' => 'Satin',
+        ]);
+        Category::create([
+            'name' => 'Satin Renda',
+        ]);
+        Category::create([
+            'name' => 'Bludru',
+        ]);
+        Category::create([
+            'name' => 'Bludru Renda',
+        ]);
+        Category::create([
+            'name' => 'Buket',
+        ]);
+        Category::create([
+            'name' => 'Buket Snack',
+        ]);
+        Category::create([
+            'name' => 'Buket Uang',
+        ]);
     }
 }

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -31,23 +32,36 @@ class ProductController extends Controller
         $request->validate([
             'name' => ['required', 'max:255', 'min:3'],
             'harga' => ['required', 'min:0', 'numeric'],
+            'image' => ['required'],
             'category_id' => ['required', 'exists:categories,id']
         ], [
             'category_id.exists' => 'category tidak valid'
         ]);
 
+        // dd($request->all());
         try {
+
+            // Ambil file dari request
+            $file = $request->file('image');
+
+            // Tentukan nama baru untuk file (misalnya: file_dengan_tanggal)
+            $newFileName = 'file_' . time() . '.' . $file->getClientOriginalExtension();
+            $path = Storage::putFileAs(
+                'products',
+                $request->file('image'),
+                $newFileName
+            );
             Product::create([
                 'name' => $request->input('name'),
                 'harga' => $request->input('harga'),
-                'image' => 'asdasd',
+                'image' => $path,
                 'description' => $request->input('description'),
                 'category_id' => $request->input('category_id')
             ]);
 
             return redirect()->route('master.product.index')->with('success', 'berhasil menambahkan product baru');
         } catch (\Throwable $th) {
-
+dd($th->getMessage());
             return back()->with('error', 'terdapat kesalahan server');
         }
     }

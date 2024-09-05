@@ -4,8 +4,8 @@
         <div class="flex items-center space-x-8">
           <div class="shrink-0">
             <a href="#" title="" class="">
-              {{-- <img class="block w-auto h-8 dark:hidden" src="{{ asset('image/weblogo.png') }}" alt=""> --}}
-              {{-- <img class="hidden w-auto h-8 dark:block" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full-dark.svg" alt=""> --}}
+              {{-- <img class="block w-auto h-8 :hidden" src="{{ asset('image/weblogo.png') }}" alt=""> --}}
+              {{-- <img class="hidden w-auto h-8 :block" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full-.svg" alt=""> --}}
               <h1 class="block text-2xl font-bold  text-black"><span class="text-primary-700">E</span>ga<span class="text-primary-700">S</span>lempang</h1>
             </a>
           </div>
@@ -156,7 +156,7 @@
               </div>
             </div>
         
-            <a href="#" title="" class="mb-2 me-2 inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" role="button"> Proceed to Checkout </a>
+            <a href="#" title="" class="mb-2 me-2 inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 " role="button"> Proceed to Checkout </a>
           </div>
   
           <button id="userDropdownButton1" data-dropdown-toggle="userDropdown1" type="button" class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-gray-100  text-sm font-medium leading-none text-gray-900 ">
@@ -169,18 +169,18 @@
             </svg> 
           </button>
   
-          <div id="userDropdown1" class="hidden z-10 w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow dark:divide-gray-600 ">
+          <div id="userDropdown1" class="hidden z-10 w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow  ">
             <ul class="p-2 text-start text-sm font-medium text-gray-900 ">
-              <li><a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"> My Account </a></li>
-              <li><a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"> My Orders </a></li>
-              <li><a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"> Settings </a></li>
-              <li><a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"> Favourites </a></li>
-              <li><a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"> Delivery Addresses </a></li>
-              <li><a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"> Billing Data </a></li>
+              <li><a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 "> My Account </a></li>
+              <li><a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 "> My Orders </a></li>
+              <li><a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 "> Settings </a></li>
+              <li><a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 "> Favourites </a></li>
+              <li><a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 "> Delivery Addresses </a></li>
+              <li><a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 "> Billing Data </a></li>
             </ul>
         
             <div class="p-2 text-sm font-medium text-gray-900 ">
-              <a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600"> Sign Out </a>
+              <a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 "> Sign Out </a>
             </div>
           </div>
   
@@ -195,25 +195,25 @@
         </div>
       </div>
   
-      <div id="ecommerce-navbar-menu-1" class="bg-gray-50  dark:border-gray-600 border border-gray-200 rounded-lg py-3 hidden px-4 mt-4">
+      <div id="ecommerce-navbar-menu-1" class="bg-gray-50   border-gray-200 rounded-lg py-3 hidden px-4 mt-4">
         <ul class="text-gray-900  text-sm font-medium  space-y-3">
           <li>
-            <a href="#" class="hover:text-primary-700 dark:hover:text-primary-500">Home</a>
+            <a href="#" class="hover:text-primary-700 ">Home</a>
           </li>
           <li>
-            <a href="#" class="hover:text-primary-700 dark:hover:text-primary-500">Best Sellers</a>
+            <a href="#" class="hover:text-primary-700 ">Best Sellers</a>
           </li>
           <li>
-            <a href="#" class="hover:text-primary-700 dark:hover:text-primary-500">Gift Ideas</a>
+            <a href="#" class="hover:text-primary-700 ">Gift Ideas</a>
           </li>
           <li>
-            <a href="#" class="hover:text-primary-700 dark:hover:text-primary-500">Games</a>
+            <a href="#" class="hover:text-primary-700 ">Games</a>
           </li>
           <li>
-            <a href="#" class="hover:text-primary-700 dark:hover:text-primary-500">Electronics</a>
+            <a href="#" class="hover:text-primary-700 ">Electronics</a>
           </li>
           <li>
-            <a href="#" class="hover:text-primary-700 dark:hover:text-primary-500">Home & Garden</a>
+            <a href="#" class="hover:text-primary-700 ">Home & Garden</a>
           </li>
         </ul>
       </div>

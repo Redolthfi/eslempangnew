@@ -6,12 +6,8 @@
                 @foreach ($products as $product)
                     <div
                         class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm ">
-                        <div class="h-56 w-full">
-                            {{-- <a href="#">
-                                <img class="mx-auto h-full"
-                            src="{{ asset('image/logoweb.jpeg') }}"
-                                alt="" />
-                            </a> --}}
+                        <div class="h-80 w-full ">
+                         <img class="w-full h-full object-contain" src="{{ asset('storage') . '/' . $product->image }}" alt="">
                         </div>
                         <div class="pt-6">
                             <div class="mb-4 flex items-center justify-between gap-4">
@@ -51,7 +47,7 @@
                                 </li>
                             </ul>
                             <div class="mt-4 flex items-center justify-between gap-4">
-                                <p class="text-2xl font-extrabold leading-tight text-gray-900 ">$1,699
+                                <p class="text-2xl font-extrabold leading-tight text-gray-900 ">{{ $product->harga }}
                                 </p>
                                 <button type="button"
                                     class="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 ">
