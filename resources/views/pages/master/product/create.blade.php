@@ -5,7 +5,7 @@
 
     @include('includes.alert')
     <div class="w-full p-4 border border-gray-100 shadow rounded-lg">
-        <form method="POST" class="grid sm:grid-cols-2 gap-5">
+        <form method="POST" class="grid sm:grid-cols-2 gap-5" enctype='multipart/form-data'>
             @csrf
             <div class="">
                 <input type="file" name="image" accept="image/*">
