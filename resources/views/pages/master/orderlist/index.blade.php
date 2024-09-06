@@ -50,7 +50,7 @@
                         {{ $item->status }}
                     </td>
                     <td class="px-6 py-4">
-                        <a href="#" class="text-blue-500 hover:underline">Detail</a>
+                        <a href="{{ route('master.orderlist.detail', $item->id) }}" class="text-blue-500 hover:underline">Detail</a>
                     </td>
                 </tr>
                 @endforeach

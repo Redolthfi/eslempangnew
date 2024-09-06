@@ -20,6 +20,33 @@ class OrderController extends Controller
 
     }
 
+    public function detail($id)
+    {
+        $order = Order::with('user.profile')->findOrFail($id);
+
+        // dd($order);
+
+        return view('pages.master.orderlist.detail', compact('order'));
+    }
+
+    public function detailPost(Request $request, $id)
+    {
+        $request->validate([
+            'status' => ['required', 'in:PENDING,ABORT,PROCESS']
+        ]);
+
+        $order = Order::findOrFail($id);
+
+        try {
+            $order->status = $request->input('status');
+            $order->save();
+
+            return back()->with('success', 'order berhasil diubah');
+        } catch (\Throwable $th) {
+            return back()->with('success', 'order gagal diubah');
+        }
+    }
+
     // membuat order baru
     public function createPost()
     {
@@ -73,18 +100,5 @@ class OrderController extends Controller
 
             return back()->with('error', 'gagal dalam membuat order, coba lagi nanti');
         }
-    }
-
-    public function detail($id)
-    {
-
-        $order = Order::findOrFail($id);
-
-        return view('', compact('order'));
-    }
-
-    public function editPost(Request $request, $id)
-    {
-
     }
 }

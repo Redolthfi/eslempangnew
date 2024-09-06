@@ -83,7 +83,8 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('master')->group(function () {
         Route::prefix('orders')->group(function () {
             Route::get('/', [OrderController::class, 'index'])->name('master.orderlist.index');
-
+            Route::get('/detail/{id}', [OrderController::class, 'detail'])->name('master.orderlist.detail');
+            Route::post('/detail/{id}', [OrderController::class, 'detailPost']);
         });
         Route::prefix('products')->group(function () {
             Route::get('/', [ProductController::class, 'index'])->name('master.product.index');
