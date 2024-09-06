@@ -1,13 +1,9 @@
 @extends('layouts.app')
 
 @section('body')
-    <x-main-header title="Ini halaman master products" />
+    <x-main-header title="Ini halaman master order" />
 
     @include('includes.alert')
-
-    <div class="mb-10 flex justify-end">
-        <a href="{{ route('master.product.create') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Tambah Product</a>
-    </div>
     {{-- table data --}}
     <div class="relative overflow-x-auto">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500">
@@ -17,30 +13,44 @@
                         No
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Nama
+                        ID
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Category
+                        Product
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Action
+                        Harga
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Status
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Acction
                     </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($products as $key => $item)
+                @foreach ($orders as $key => $item)
                 <tr class="bg-white border-b">
                     <td class="px-6 py-4">
-                        {{ ($products->currentPage() - 1) * $products->perPage() + $key + 1 }}
+                        {{ ($orders->currentPage() - 1) * $orders->perPage() + $key + 1 }}
                     </td>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        {{ $item->name }}
+                        {{ $item->id }}
                     </th>
                     <td class="px-6 py-4">
-                        {{ $item->category->name }}
+                        @foreach ($item->orders as $product)
+                            <p>{{ $product['name'] }} x {{ $product['qty'] }} </p>
+                        @endforeach
                     </td>
                     <td class="px-6 py-4">
-                        <a href="{{ route('master.product.edit', ['id' => $item->id]) }}" class="text-blue-500 hover:underline">Edit</a> | <a href="{{ route('master.product.delete', ['id' => $item->id]) }}">Delete</a>
+                        Rp. {{ number_format($item->total) }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $item->status }}
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="#" class="text-blue-500 hover:underline">Detail</a>
                     </td>
                 </tr>
                 @endforeach
@@ -48,6 +58,6 @@
         </table>
     </div>
 
-    {{ $products->links() }}
+    {{ $orders->links() }}
 
 @endsection

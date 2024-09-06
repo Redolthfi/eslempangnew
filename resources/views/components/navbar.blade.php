@@ -11,7 +11,7 @@
           </div>
           <ul class="hidden lg:flex items-center justify-start gap-6 md:gap-8 py-3 sm:justify-center">
             <li>
-              <a href="/products" title="" class="flex text-sm font-medium text-gray-900 hover:text-primary-700 ">
+              <a href="{{ route('product') }}" title="" class="flex text-sm font-medium text-gray-900 hover:text-primary-700 ">
                 Product
               </a>
             </li>
@@ -172,6 +172,7 @@
           <div id="userDropdown1" class="hidden z-10 w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow  ">
             <ul class="p-2 text-start text-sm font-medium text-gray-900 ">
               <li><a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 "> My Account </a></li>
+              <li><a href="{{ route('cart.user') }}" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 "> My Cart </a></li>
               <li><a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 "> My Orders </a></li>
               <li><a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 "> Settings </a></li>
               <li><a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 "> Favourites </a></li>
@@ -180,7 +181,7 @@
             </ul>
         
             <div class="p-2 text-sm font-medium text-gray-900 ">
-              <a href="#" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 "> Sign Out </a>
+              <a href="{{ route('logout') }}" title="" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 "> Sign Out </a>
             </div>
           </div>
   

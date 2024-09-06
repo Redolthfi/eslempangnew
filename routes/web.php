@@ -3,8 +3,11 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserCartController;
 use App\Http\Controllers\UserProfileController;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
@@ -41,7 +44,8 @@ Route::get('/products', function () {
     return view('pages/product', [
         'products' => $products
     ]);
-});
+})->name('product');
+
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -62,16 +66,25 @@ Route::middleware(['auth'])->group(function () {
         });
     });
 
+    Route::get('myCart', [UserCartController::class, 'index'])->name('cart.user');
+
+    Route::get('/createOrder', [OrderController::class, 'createPost'])->name('order.post');
+
     // Route::get('/order', [CartController::class, 'index']);
     Route::post('/cartAdd', [CartController::class, 'add'])->name('cart.add');
 
-    // Route::get('/order/delete/{id}', [CartController::class, 'delete']);
+    Route::get('/cart/delete/{id}', [CartController::class, 'delete'])->name('cart.delete');
 
     // Route::get('/order', [CartController::class, 'index']);
     // Route::post('/order', [CartController::class, 'add']);
     // Route::get('/order/delete/{id}', [CartController::class, 'delete']);
 
+
     Route::prefix('master')->group(function () {
+        Route::prefix('orders')->group(function () {
+            Route::get('/', [OrderController::class, 'index'])->name('master.orderlist.index');
+
+        });
         Route::prefix('products')->group(function () {
             Route::get('/', [ProductController::class, 'index'])->name('master.product.index');
             Route::get('/create', [ProductController::class, 'create'])->name('master.product.create');
