@@ -50,6 +50,12 @@ class OrderController extends Controller
     // membuat order baru
     public function createPost()
     {
+        $user = auth()->user();
+
+        if ($user->profile->address == null || $user->profile->address == '' || $user->profile->phone_number == null || $user->profile->phone_number == '') {
+            return back()->with('warning', 'silahkan melengkapkan alamat dan nomer telepon dulu!');
+        }
+
         $carts = Cart::where('user_id', auth()->user()->id)->first();
 
         try {
